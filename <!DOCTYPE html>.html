@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Tag — Apresentação do Projeto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Animação das Bolhas de Fundo */
+        .bubble-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(180deg, #e0f2fe 0%, #ffffff 100%);
+        }
+        
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background-color: rgba(56, 189, 248, 0.2);
+            border-radius: 50%;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            animation: float-up linear infinite;
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+        }
+
+        /* Utilitários de Animação de Entrada */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo da Bolha (Feature Card) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Fundo Animado -->
+    <div class="bubble-bg" id="bubbleContainer"></div>
+
+    <!-- Navegação -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-blue-100 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 font-bold text-xl text-blue-600">
+                <i data-lucide="circle-dashed" class="w-6 h-6"></i>
+                <span>Bubble Tag</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-slate-600">
+                <a href="#conceito" class="hover:text-blue-500 transition">Conceito</a>
+                <a href="#papeis" class="hover:text-blue-500 transition">Papéis</a>
+                <a href="#mecanica" class="hover:text-blue-500 transition">A Bolha</a>
+                <a href="#design" class="hover:text-blue-500 transition">Design & UX</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative pt-20">
+        <div class="reveal active space-y-6 max-w-4xl">
+            <div class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-4 border border-blue-200">
+                Projeto Académico
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                Bubble <span class="text-blue-500">Tag</span>
+            </h1>
+            <p class="text-2xl md:text-3xl text-slate-500 font-light">
+                Apanha & Bolha
+            </p>
+            <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mt-6">
+                Uma reinvenção inclusiva e estratégica do jogo do apanha na plataforma Roblox.
+                Ninguém fica para trás, todos jogam até ao fim.
+            </p>
+            
+            <div class="pt-8">
+                <a href="#conceito" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition shadow-lg hover:shadow-blue-500/30">
+                    Conhecer o Projeto <i data-lucide="arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção: O Conceito -->
+    <section id="conceito" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-slate-900">Uma Abordagem Inclusiva</h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        O Bubble Tag inspira-se no clássico jogo do apanha, mas resolve um problema fundamental: a frustração da exclusão. Em vez de ficarem "fora do jogo" quando apanhados, os jogadores mantêm-se presentes e ativos.
+                    </p>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Esta apresentação, estruturada como uma narrativa explicativa, demonstra como transformámos um conceito simples numa experiência multijogador rica, focada na cooperação e tensão contínua.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl shadow-xl border-t-4 border-blue-400">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="target" class="text-blue-500"></i>
+                        Objetivos do Design
+                    </h3>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                            <span>Sem exclusão permanente de jogadores.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                            <span>Fácil de aprender, difícil de dominar.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                            <span>Foco na interação social e cooperação.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Os Papéis (Cards) -->
+    <section id="papeis" class="py-24 bg-white/50 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16 text-slate-900 reveal">Dinâmica de Jogo: Dois Papéis</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 reveal">
+                <!-- Card Runner -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="wind" class="w-10 h-10 text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">Runner (Fugitivo)</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        O objetivo é fugir e sobreviver. Devem movimentar-se estrategicamente, recolher estrelas e, crucialmente, salvar os colegas presos.
+                    </p>
+                    <div class="flex flex-wrap gap-2 justify-center mt-auto">
+                        <span class="bg-slate-100 px-3 py-1 rounded text-sm font-medium">Fuga</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded text-sm font-medium">Cooperação</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded text-sm font-medium">Risco</span>
+                    </div>
+                </div>
+
+                <!-- Card Chaser -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="hand" class="w-10 h-10 text-red-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">Chaser (Perseguidor)</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        A força ofensiva. O seu objetivo é apanhar todos os Runners, colocando-os dentro de bolhas antes que o tempo acabe.
+                    </p>
+                    <div class="flex flex-wrap gap-2 justify-center mt-auto">
+                        <span class="bg-slate-100 px-3 py-1 rounded text-sm font-medium">Perseguição</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded text-sm font-medium">Controlo</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded text-sm font-medium">Velocidade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: A Bolha (Mecânica Central) -->
+    <section id="mecanica" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-blue-600/5 skew-y-3 z-[-1]"></div>
+        
+        <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-center reveal">
+            <div class="md:col-span-3">
+                <div class="inline-flex items-center gap-2 text-blue-600 font-bold mb-2">
+                    <i data-lucide="zap"></i> Mecânica Central
+                </div>
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">A Bolha: O Elemento Diferenciador</h2>
+                <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+                    Quando apanhado, o jogador não "morre". Fica <strong>imobilizado numa bolha flutuante</strong>.
+                </p>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    Continua visível e integrado no ambiente, transformando a derrota momentânea numa oportunidade de interação social. Os colegas podem quebrar a bolha para o salvar.
+                </p>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                    <h4 class="font-bold text-blue-800 mb-2">Dilema de Risco/Recompensa</h4>
+                    <p class="text-sm text-blue-700">
+                        "Devo continuar a fugir ou arriscar aproximar-me do Chaser para salvar um amigo?" 
+                        <br>Esta decisão cria tensão constante e momentos imprevisíveis.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 flex justify-center">
+                <!-- Ilustração abstrata da bolha -->
+                <div class="relative w-64 h-64">
+                    <div class="absolute inset-0 bg-blue-400 rounded-full opacity-20 animate-pulse"></div>
+                    <div class="absolute inset-4 bg-gradient-to-tr from-blue-300 to-transparent rounded-full border-2 border-white/50 shadow-2xl backdrop-blur-sm flex items-center justify-center">
+                        <i data-lucide="user" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <!-- Partículas orbitando -->
+                    <div class="absolute top-0 right-0 p-3 bg-white rounded-full shadow-lg animate-bounce">
+                        <i data-lucide="unlock" class="w-6 h-6 text-green-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Game Loop e Economia -->
+    <section class="py-24 bg-slate-900 text-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 text-center reveal">
+                <!-- Step 1 -->
+                <div class="p-6 border border-slate-700 rounded-2xl bg-slate-800/50">
+                    <div class="text-4xl font-bold text-blue-400 mb-2">90s</div>
+                    <h3 class="text-xl font-bold mb-3">Ritmo Rápido</h3>
+                    <p class="text-slate-400 text-sm">
+                        Rondas curtas ideais para o público jovem do Roblox. Lobby automático e teletransporte instantâneo para a ação.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div class="p-6 border border-slate-700 rounded-2xl bg-slate-800/50">
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">Pts</div>
+                    <h3 class="text-xl font-bold mb-3">Pontuação Ativa</h3>
+                    <p class="text-slate-400 text-sm">
+                        Sem placar global durante o jogo para manter o suspense. Os pontos são revelados apenas no final, destacando os melhores.
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div class="p-6 border border-slate-700 rounded-2xl bg-slate-800/50">
+                    <div class="text-4xl font-bold text-purple-400 mb-2"><i data-lucide="coins" class="inline mb-1"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Economia Justa</h3>
+                    <p class="text-slate-400 text-sm">
+                        Moedas desbloqueiam apenas cosméticos (skins de bolhas, emotes). Sem vantagens "pay-to-win" na jogabilidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Design & UX -->
+    <section id="design" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center mb-12 reveal">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Design Visual & Experiência de Utilizador</h2>
+            <p class="text-slate-600">Pensado para ser acessível, legível e multiplataforma.</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 reveal">
+            <!-- Card UX -->
+            <div class="glass-card p-8 rounded-2xl flex gap-4">
+                <div class="bg-blue-100 p-3 rounded-lg h-fit">
+                    <i data-lucide="smartphone" class="w-6 h-6 text-blue-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Cross-Platform</h3>
+                    <p class="text-sm text-slate-600">
+                        O jogo foi desenvolvido para funcionar perfeitamente em <strong>computadores e dispositivos móveis</strong>. A interface adapta-se automaticamente ao tamanho do ecrã.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card UI -->
+            <div class="glass-card p-8 rounded-2xl flex gap-4">
+                <div class="bg-purple-100 p-3 rounded-lg h-fit">
+                    <i data-lucide="mouse-pointer-2" class="w-6 h-6 text-purple-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Simplicidade Extrema</h3>
+                    <p class="text-sm text-slate-600">
+                        Apenas <strong>uma ação principal</strong>. Interface minimalista (HUD) para evitar poluição visual e facilitar a entrada de novos jogadores.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card Visual -->
+            <div class="glass-card p-8 rounded-2xl flex gap-4">
+                <div class="bg-orange-100 p-3 rounded-lg h-fit">
+                    <i data-lucide="palette" class="w-6 h-6 text-orange-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Estética Legível</h3>
+                    <p class="text-sm text-slate-600">
+                        Arenas pequenas, estilo colorido e obstáculos simples. Tudo desenhado para facilitar a leitura rápida do espaço durante a ação frenética.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card Audio -->
+            <div class="glass-card p-8 rounded-2xl flex gap-4">
+                <div class="bg-green-100 p-3 rounded-lg h-fit">
+                    <i data-lucide="volume-2" class="w-6 h-6 text-green-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Feedback Claro</h3>
+                    <p class="text-sm text-slate-600">
+                        Sinais visuais e sonoros imediatos para as ações importantes (apanhar, salvar, recolher estrela), guiando o jogador intuitivamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-12 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Conclusão</h2>
+            <p class="text-slate-600 mb-8 max-w-2xl mx-auto">
+                O Bubble Tag combina simplicidade, cooperação e diversão. Representa a aplicação prática de conceitos sólidos de design de jogos, resultando numa experiência social envolvente dentro do ecossistema Roblox.
+            </p>
+            <div class="flex justify-center items-center gap-2 text-sm text-slate-400">
+                <span>© 2025 Projeto Bubble Tag</span>
+                <span>•</span>
+                <span>Apresentação Académica</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa os ícones
+        lucide.createIcons();
+
+        // Script para gerar bolhas no fundo
+        const bubbleContainer = document.getElementById('bubbleContainer');
+        
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            // Tamanho aleatório
+            const size = Math.random() * 60 + 20;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            // Posição horizontal aleatória
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            // Duração da animação aleatória
+            const duration = Math.random() * 10 + 10; // entre 10 e 20s
+            bubble.style.animationDuration = `${duration}s`;
+            
+            bubbleContainer.appendChild(bubble);
+            
+            // Remover bolha após a animação
+            setTimeout(() => {
+                bubble.remove();
+            }, duration * 1000);
+        }
+
+        // Criar bolhas periodicamente
+        setInterval(createBubble, 800);
+        
+        // Criar algumas bolhas iniciais
+        for(let i=0; i<15; i++) {
+            createBubble();
+            // Acelerar animação inicial manualmente para espalhar
+            const b = bubbleContainer.lastChild;
+            b.style.bottom = `${Math.random() * 100}%`;
+        }
+
+        // Animação de Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Ativar no load para elementos visíveis
+        reveal();
+    </script>
+</body>
+</html>
